@@ -1,0 +1,23 @@
+{
+  "name": "coderunner",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PMHStudio/DiscordCodeRunner.git"
+  },
+  "author": "PMH Studio / PMH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PMHStudio/DiscordCodeRunner/issues"
+  },
+  "homepage": "https://github.com/PMHStudio/DiscordCodeRunner#readme"
+}
