@@ -1,11 +1,14 @@
 const $api = require('discord.js')
 const $bot = new $api.Client()
+const superagent = require('superagent')
+const ip = require('ip')
+const ping = require('ping')
 let std = ''
 
 $bot.login(process.env.Token)
 
 $bot.on('ready', () => {
-  $bot.user.setActivity('JavaScript Codes', { type: 'WATCHING'})
+  $bot.user.setActivity('JavaScript Codes | Dev', { type: 'WATCHING'})
 })
 
 $bot.on('message', ($msg) => {
@@ -32,6 +35,17 @@ $bot.on('message', ($msg) => {
         $msg.channel.send('-------------')
       })
     }
+  } else if ($msg.content.startsWith('http://') || $msg.content.startsWith('https://')) {
+    superagent.get($msg.content).then((res) => {
+      $msg.channel.send($msg.content + ' is Up')
+    }).catch((err) => {
+      $msg.channel.send($msg.content + ' is Down')
+    })
+  } else if (ip.isV4Format($msg.content)) {
+    ping.sys.probe($msg.content, (isUp) => {
+      if (isUp) $msg.channel.send($msg.content + ' is Up')
+      else $msg.channel.send($msg.content + ' is Down')
+    })
   } else {
     console.log('Ignore...\n')
   }
