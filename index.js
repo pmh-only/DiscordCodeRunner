@@ -18,8 +18,8 @@ $bot.on('message', ($msg) => {
   if ($msg.content.includes('```js')) {
     console.log('Run Script...\n')
     let $script = $msg.content.split('```js')[1].split('```')[0]
-    if ($script.includes('$api') || $script.includes('$bot') || $script.includes('$msg') || $script.includes('$th') || $script.includes('process') || $script.includes('require(') || $script.includes('import')) {
-      $msg.channel.send('Code Runner | Error: Script cannot include Enviroment & Module Things   ex) $api, $bot, $msg, $th, process, require(), import')
+    if ($script.includes('$api') || $script.includes('$bot') || $script.includes('$msg') || $script.includes('$th') || $script.includes('process') || $script.includes('require(') || $script.includes('import') || $script.includes('eval(')) {
+      $msg.channel.send('Code Runner | Error: Script cannot include Enviroment & Module Things   ex) $api, $bot, $msg, $th, process, require(), import, eval(')
     } else {
       std = ''
       $script = $script.split('console.log(').join('stdLn(')
