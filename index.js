@@ -9,6 +9,11 @@ $bot.login(process.env.Token)
 
 $bot.on('ready', () => {
   $bot.user.setActivity('JavaScript Codes | Dev', { type: 'WATCHING'})
+  setInterval(() => {
+    if (std.length <= 100) {
+      process.exit(1)
+    }
+  }, 1000)
 })
 
 $bot.on('message', ($msg) => {
